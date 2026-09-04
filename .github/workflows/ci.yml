@@ -1,0 +1,30 @@
+name: JGMRP Build and Test
+
+# 1. THE TRIGGERS: When should this robot run?
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+jobs:
+  build:
+    # 2. THE ENVIRONMENT: Spin up a fresh Linux server
+    runs-on: ubuntu-latest
+
+    steps:
+      # Grab your repository's code
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      # Install Java 26
+      - name: Set up JDK 26
+        uses: actions/setup-java@v6
+        with:
+          java-version: '26'
+          distribution: 'temurin'
+          cache: maven # This caches your dependencies so builds are blazingly fast
+
+      # 3. THE EXECUTION: Validate, compile, lint, and test without packaging
+      - name: Lint and Test
+        run: mvn clean test
