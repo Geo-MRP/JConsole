@@ -3,6 +3,6 @@
  */
 package com.gmrp.JConsole.service;
 
-public interface Service {
-
+public abstract class ServiceBuilder {
+	public abstract Service build();
 }
