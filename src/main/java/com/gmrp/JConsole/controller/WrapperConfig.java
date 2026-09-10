@@ -3,7 +3,9 @@
  */
 package com.gmrp.JConsole.controller;
 
+import com.gmrp.JConsole.client.Client;
 import com.gmrp.JConsole.client.ClientConfig;
+import com.gmrp.JConsole.service.Service;
 import com.gmrp.JConsole.service.ServiceConfig;
 
 import java.util.ServiceLoader;
@@ -50,11 +52,11 @@ public class WrapperConfig {
 		serviceConfig = serviceConfigSupplier.get().fromEnv();
 	}
 
-	public ClientConfig getClientConfig() {
-		return clientConfig;
+	public Client createClient() {
+		return clientConfig.createClient();
 	}
 
-	public ServiceConfig getServiceConfig() {
-		return serviceConfig;
+	public Service createService() {
+		return serviceConfig.createService();
 	}
 }

@@ -8,8 +8,8 @@ import com.gmrp.JConsole.service.Service;
 
 public class WrapperFactory {
 	public static Wrapper create(WrapperConfig wrapperConfig) {
-		Client client = wrapperConfig.getClientConfig().createClient();
-		Service service = wrapperConfig.getServiceConfig().createService();
+		Client client = wrapperConfig.createClient();
+		Service service = wrapperConfig.createService();
 		return new WrapperBuilder()
 				.withClient(client)
 				.withService(service)
