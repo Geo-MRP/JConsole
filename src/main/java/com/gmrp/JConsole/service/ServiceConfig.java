@@ -4,7 +4,7 @@
 package com.gmrp.JConsole.service;
 
 public interface ServiceConfig {
-	Object getType();
+	String getType();
 
 	public ServiceConfig fromEnv();
 
