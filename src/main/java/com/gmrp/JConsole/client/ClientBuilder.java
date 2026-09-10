@@ -3,5 +3,6 @@
  */
 package com.gmrp.JConsole.client;
 
-public interface Client {
+public abstract class ClientBuilder {
+	public abstract Client build();
 }
