@@ -38,9 +38,6 @@ public class WrapperConfig {
 	}
 
 	private void createServiceConfig(String serviceType) {
-		if (serviceType == null)
-			throw new IllegalArgumentException("Missing environment variable: SERVICE");
-
 		ServiceLoader<ServiceConfig> serviceConfigLoader = ServiceLoader.load(ServiceConfig.class);
 		Supplier<ServiceConfig> serviceConfigSupplier = serviceConfigLoader.stream()
 				.filter(provider -> provider.get().getType().equals(serviceType))
