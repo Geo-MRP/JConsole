@@ -29,9 +29,6 @@ public class WrapperConfig {
 	}
 
 	private void createClientConfig(String clientType) {
-		if (clientType == null)
-			throw new IllegalArgumentException("Missing environment variable: CLIENT");
-
 		ServiceLoader<ClientConfig> clientConfigLoader = ServiceLoader.load(ClientConfig.class);
 		Supplier<ClientConfig> clientConfigSupplier = clientConfigLoader.stream()
 				.filter(provider -> provider.get().getType().equals(clientType))
