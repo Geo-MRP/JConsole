@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 public class WrapperConfig {
 	private static final String DEFAULT_CLIENT = "HTTP";
-	private static final String DEFAULT_SERVICE = "";
+	private static final String DEFAULT_SERVICE = null;
 
 	private ClientConfig clientConfig;
 	private ServiceConfig serviceConfig;
