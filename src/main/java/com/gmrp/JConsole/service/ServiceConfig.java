@@ -6,7 +6,7 @@ package com.gmrp.JConsole.service;
 public interface ServiceConfig {
 	String getType();
 
-	public ServiceConfig fromEnv();
+	ServiceConfig fromEnv();
 
-	public Service createService();
+	Service createService();
 }
