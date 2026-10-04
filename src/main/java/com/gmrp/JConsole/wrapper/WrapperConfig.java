@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
-package com.gmrp.JConsole.controller;
+package com.gmrp.JConsole.wrapper;
 
 import com.gmrp.JConsole.client.Client;
 import com.gmrp.JConsole.client.ClientConfig;

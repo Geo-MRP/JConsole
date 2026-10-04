@@ -3,9 +3,9 @@
  */
 package com.gmrp.JConsole;
 
-import com.gmrp.JConsole.controller.Wrapper;
-import com.gmrp.JConsole.controller.WrapperConfig;
-import com.gmrp.JConsole.controller.WrapperFactory;
+import com.gmrp.JConsole.wrapper.Wrapper;
+import com.gmrp.JConsole.wrapper.WrapperConfig;
+import com.gmrp.JConsole.wrapper.WrapperFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
