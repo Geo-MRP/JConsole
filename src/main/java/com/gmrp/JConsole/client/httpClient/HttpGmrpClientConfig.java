@@ -9,7 +9,7 @@ import com.gmrp.JConsole.client.ClientConfig;
 import java.net.URI;
 import java.time.Duration;
 
-public class HttpClientConfig implements ClientConfig {
+public class HttpGmrpClientConfig implements ClientConfig {
 	private final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(10);
 
 	private URI mapEndpoint;
@@ -24,7 +24,7 @@ public class HttpClientConfig implements ClientConfig {
 	}
 
 	@Override
-	public HttpClientConfig fromEnv() {
+	public HttpGmrpClientConfig fromEnv() {
 		if (!System.getenv().containsKey("CLIENT_HTTP_MAP_ENDPOINT"))
 			throw new IllegalArgumentException("CLIENT_HTTP_MAP_ENDPOINT environment variable is not set");
 
@@ -47,7 +47,7 @@ public class HttpClientConfig implements ClientConfig {
 
 	@Override
 	public Client createClient() {
-		return new HttpClientBuilder()
+		return new HttpGmrpClientBuilder()
 				.withTimeout(timeout)
 				.withMapEndpoint(mapEndpoint)
 				.withChatEndpoint(chatEndpoint)

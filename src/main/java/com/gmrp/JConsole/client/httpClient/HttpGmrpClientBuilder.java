@@ -6,7 +6,7 @@ package com.gmrp.JConsole.client.httpClient;
 import java.net.URI;
 import java.time.Duration;
 
-public class HttpClientBuilder {
+public class HttpGmrpClientBuilder {
 	private URI mapUri;
 	private URI chatUri;
 
@@ -15,32 +15,32 @@ public class HttpClientBuilder {
 
 	private Duration timeout;
 
-	public HttpClientBuilder withMapEndpoint(URI uri) {
+	public HttpGmrpClientBuilder withMapEndpoint(URI uri) {
 		this.mapUri = uri;
 		return this;
 	}
 
-	public HttpClientBuilder withChatEndpoint(URI uri) {
+	public HttpGmrpClientBuilder withChatEndpoint(URI uri) {
 		this.chatUri = uri;
 		return this;
 	}
 
-	public HttpClientBuilder withChatAuthUserId(int chatAuthUserId) {
+	public HttpGmrpClientBuilder withChatAuthUserId(int chatAuthUserId) {
 		this.chatAuthUserId = chatAuthUserId;
 		return this;
 	}
 
-	public HttpClientBuilder withChatAuthSessionId(String chatAuthSessionId) {
+	public HttpGmrpClientBuilder withChatAuthSessionId(String chatAuthSessionId) {
 		this.chatAuthSessionId = chatAuthSessionId;
 		return this;
 	}
 
-	public HttpClientBuilder withTimeout(Duration timeout) {
+	public HttpGmrpClientBuilder withTimeout(Duration timeout) {
 		this.timeout = timeout;
 		return this;
 	}
 
-	public HttpClient build() {
-		return new HttpClient(mapUri, chatUri, chatAuthUserId, chatAuthSessionId, timeout);
+	public HttpGmrpClient build() {
+		return new HttpGmrpClient(mapUri, chatUri, chatAuthUserId, chatAuthSessionId, timeout);
 	}
 }
