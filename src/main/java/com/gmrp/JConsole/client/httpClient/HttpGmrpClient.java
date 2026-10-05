@@ -26,15 +26,17 @@ public class HttpGmrpClient implements Client {
 	private final int chatAuthUserId;
 	private final Duration timeout;
 
-	private static final HttpClient CLIENT = HttpClient.newHttpClient();
-	private static final ObjectMapper MAPPER = new ObjectMapper();
+	private static HttpClient CLIENT = null;
+	private static ObjectMapper MAPPER = null;
 
-	public HttpGmrpClient(URI mapUri, URI chatUri, int chatAuthUserId, String chatAuthSessionId, Duration timeout) {
+	public HttpGmrpClient(URI mapUri, URI chatUri, int chatAuthUserId, String chatAuthSessionId, Duration timeout, HttpClient client, ObjectMapper mapper) {
 		this.mapUri = mapUri;
 		this.chatUri = chatUri;
 		this.timeout = timeout;
 		this.chatAuthUserId = chatAuthUserId;
 		this.chatAuthSessionId = chatAuthSessionId;
+		CLIENT = client;
+		MAPPER = mapper;
 	}
 
 	public CompletableFuture<List<User>> getUsers() {

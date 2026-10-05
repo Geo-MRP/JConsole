@@ -3,10 +3,14 @@
  */
 package com.gmrp.JConsole.client.httpClient;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gmrp.JConsole.client.ClientBuilder;
+
 import java.net.URI;
+import java.net.http.HttpClient;
 import java.time.Duration;
 
-public class HttpGmrpClientBuilder {
+public class HttpGmrpClientBuilder extends ClientBuilder {
 	private URI mapUri;
 	private URI chatUri;
 
@@ -41,6 +45,6 @@ public class HttpGmrpClientBuilder {
 	}
 
 	public HttpGmrpClient build() {
-		return new HttpGmrpClient(mapUri, chatUri, chatAuthUserId, chatAuthSessionId, timeout);
+		return new HttpGmrpClient(mapUri, chatUri, chatAuthUserId, chatAuthSessionId, timeout, HttpClient.newHttpClient(), new ObjectMapper());
 	}
 }
