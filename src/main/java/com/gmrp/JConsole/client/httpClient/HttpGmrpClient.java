@@ -20,11 +20,11 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class HttpGmrpClient implements Client {
-	private URI mapUri;
-	private URI chatUri;
-	private String chatAuthSessionId;
-	private int chatAuthUserId;
-	private Duration timeout;
+	private final URI mapUri;
+	private final URI chatUri;
+	private final String chatAuthSessionId;
+	private final int chatAuthUserId;
+	private final Duration timeout;
 
 	private static final HttpClient CLIENT = HttpClient.newHttpClient();
 	private static final ObjectMapper MAPPER = new ObjectMapper();
